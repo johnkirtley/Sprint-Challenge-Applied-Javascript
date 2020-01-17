@@ -19,8 +19,8 @@ function Header() {
     date.classList.add('date');
     temperature.classList.add('temp');
 
-    date.textContent = 'March 28, 2019';
-    title.textContent = 'Lambda Times';
+    date.textContent = new Date().toDateString()
+    title.textContent = 'Newsfeed';
     temperature.textContent = '98°';
 
     header.append(date);

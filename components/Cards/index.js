@@ -19,18 +19,23 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 
+// Axios Call for Article Content 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(response => {
+        // Storing Article Object Values In Variable
         const authorData = Object.values(response.data.articles);
+        // Looping Through Array of Objects
         authorData.forEach(item => {
-            item.forEach(test => {
-                return cardsContainer.append(cardCreator(test));
+            // Looping Through Content Within Each Array
+            item.forEach(content => {
+                return cardsContainer.append(cardCreator(content));
             })
         })
     })
     .catch(error => {
         console.log('Failed to get author data', error);
     })
+
 
 function cardCreator(data) {
     const card = document.createElement('div'),
